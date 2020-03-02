@@ -46,6 +46,7 @@ class TournamentTest {
      * a Great Sword is a two handed sword deliver 12 damages, but can attack only 2 every 3)(attack ; attack ; no attack)
      * an armor : reduce all received damages by 3 & reduce delivered damages by one
      */
+    @Test
     void testArmoredSwordsmanVsViking()
     {
         Highlander highlander = new Highlander();
@@ -65,6 +66,7 @@ class TournamentTest {
      * a veteran Highlander goes Berserk once his hit points are under 30% of his initial total
      * once Berserk, he doubles his damages
      */
+    @Test
     void testViciousSwordsmanVsVeteranHighlander()
     {
         Swordsman swordsman = (new Swordsman("Vicious"))
