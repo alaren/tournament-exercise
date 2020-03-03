@@ -10,7 +10,6 @@ public abstract class Warrior {
     protected int bucklerCap;
     protected int tired;
     protected int poison;
-    protected boolean berserker;
     protected boolean veteran;
     protected double startingHp;
 
@@ -40,11 +39,11 @@ public abstract class Warrior {
             hitStrike = hitStrike + 20;
             warrior.poison--;
         }
-        if (warrior.berserker) {
+        if (warrior.healt <= (warrior.startingHp * 0.3) && warrior.veteran) {
             hitStrike = hitStrike * 2;
         }
         if (armor) {
-            hitStrike = warrior.damage() - 3;
+            hitStrike = hitStrike - 3;
         }
         healt = healt - hitStrike;
     }
@@ -67,12 +66,8 @@ public abstract class Warrior {
     }
 
     protected void attack(Warrior warrior) {
-        if (veteran && healt < ((startingHp/30)*100)) {
-            berserker = true;
-        }
         if (tired >= 2) {
             tired = 0;
-            return;
         } else {
             warrior.takeHit(this);
             if (weapon.equals("Great Sword")) {
